@@ -6,6 +6,17 @@ All todos
 
 
 {% block content %}
+
+<div class="my-4" >
+    <form action="/todos/search/" class="form-inline">
+        <input
+        name="keyword"
+        class="form-control mr-sm-2 w-75" type="search" placeholder="Search todos" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+</div>
+
+
 <div class="d-flex mb-2">
     <h2>List of Todos</h2>
 

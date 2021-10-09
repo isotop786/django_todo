@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search Result.
+{% endblock title %}
+
+
+{% block content %}
+
+
+
+{% if todo %}
+<h3>Search Result</h3>
+<table class="table ">
+    <thead class="thead-dark">
+       <tr> 
+        <th>Todo</th>
+        <th>Description</th>
+        <th>Created</th>
+        <th></th>
+        <th></th>
+       </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td>{{todo.title}}</td>
+        <td>{{todo.description}}</td>
+        <td>{{todo.created_at}}</td>
+        
+        <td><a class="btn btn-warning" href="/todos/{{todo.id}}/update">Update</a></td>
+
+        <td><a class="btn btn-danger"
+            onclick="return confirm('Are you sure to delete? ');"
+            href="/todos/{{todo.id}}/delete">Delete</a></td>
+    </tr>
+
+
+</tbody>
+</table>
+
+{% endif %}
+
+{% if msg %}
+    <h2>{{msg}}</h2>
+    
+{% endif %}
+<a href="/todos/" class="btn btn-danger">Back to all Todos.</a>
+{% endblock content %}

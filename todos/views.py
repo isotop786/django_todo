@@ -76,3 +76,24 @@ def delete_todo(request,pk):
     
     return redirect('/todos/')
     
+    
+# search todo 
+def search_todo(request):
+    keyword = request.GET['keyword']
+    if len(str(keyword)) !=0:
+        try:
+            todo  = Todo.objects.get(title__contains=keyword)
+            print(todo)
+        except:
+            context ={
+                'msg':'Not found'
+            }
+            
+            return render(request,"todos/search.html",context)
+        else: 
+            context ={
+                "todo": todo
+            }
+            return render(request,"todos/search.html",context)
+    
+    return redirect('/todos/')        

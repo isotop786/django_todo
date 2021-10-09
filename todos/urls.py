@@ -1,6 +1,6 @@
 
 from django.urls import path,include
-from .views import list_todo, add_todo, update_todo,delete_todo
+from .views import list_todo, add_todo, update_todo,delete_todo,search_todo
 
 urlpatterns = [
   
@@ -8,5 +8,6 @@ urlpatterns = [
     path('add/', add_todo, name="add_todo"),
     path('<int:pk>/update', update_todo, name="update_todo"),
     path('<int:pk>/delete', delete_todo, name="delete_todo"),
+    path('search/', search_todo, name="search todo")
     
 ]
